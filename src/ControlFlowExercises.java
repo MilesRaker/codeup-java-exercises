@@ -1,14 +1,21 @@
+import java.util.Scanner;
+
+
 public class ControlFlowExercises {
     public static void main(String[] args){
-        // Fizzbuzz
-        for(int i = 1; i <= 100; i++){
-            String logOutput= "";
-            if(i%3 == 0){
-                logOutput += "Fizz";
-            } if(i%5 == 0){
-                logOutput += "Buzz";
-            }
-            System.out.println(i + " " + logOutput);
+        // Display a table of powers
+        Scanner sc = new Scanner(System.in);
+        System.out.println("USER! Enter an INTEGER!!");
+        int inputInt = sc.nextInt();
+        // display table of squares and cubes
+        System.out.println("Here is your table:");
+        System.out.println("number | squared | cubed");
+        System.out.println("------ | ------- | -----");
+        for(int i = 1; i <= inputInt; i++ ){
+
+            long squared = i * i;
+            long cubed = i * i * i;
+            System.out.printf("%d      | %d       | %d    ", i, squared, cubed).println();
         }
     }
 }
