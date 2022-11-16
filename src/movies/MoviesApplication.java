@@ -17,6 +17,7 @@ public class MoviesApplication {
             System.out.println("3 - view movies in the drama category");
             System.out.println("4 - view movies in the horror category");
             System.out.println("5 - view movies in the scifi category");
+            System.out.println("6 - add a movie");
 
             String userInput = in.getString();
             switch(userInput){
@@ -64,6 +65,21 @@ public class MoviesApplication {
                     }
                     System.out.println("-- End movie list --");
                     break;
+                case "6":
+                    String newName = in.getString("What is the name of the new movie?");
+                    String newCategory = in.getString("What is the category of the new movie?");
+                    Movie newMovie = new Movie(newName, newCategory);
+                    Movie[] tempMovies = movieList;
+                    movieList = new Movie[tempMovies.length + 1];
+                    for (int i = 0; i < tempMovies.length; i ++) {
+                        movieList[i] = tempMovies[i];
+                    }
+                    movieList[movieList.length - 1] = newMovie;
+                    System.out.println("The updated list of movies is: ");
+                    for (Movie movie : movieList) {
+                        System.out.println(movie.getName());
+                    }
+                    System.out.println("-- End movie list --");
             }
         }
     }
