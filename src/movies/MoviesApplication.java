@@ -80,6 +80,7 @@ public class MoviesApplication {
                         System.out.println(movie.getName());
                     }
                     System.out.println("-- End movie list --");
+
             }
         }
     }

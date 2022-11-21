@@ -17,7 +17,7 @@ public class Input {
 
     public boolean yesNo(){
         System.out.println("Enter yes or no: ");
-        String userInput = scanner.next();
+        String userInput = scanner.nextLine();
         if(userInput.equalsIgnoreCase("yes")
             || userInput.equalsIgnoreCase("y")
             || userInput.equalsIgnoreCase("yeah")){
@@ -27,7 +27,7 @@ public class Input {
     public boolean yesNo(String prompt){
         System.out.println(prompt);
         System.out.println("Enter yes or no: ");
-        String userInput = scanner.next();
+        String userInput = scanner.nextLine();
         if(userInput.equalsIgnoreCase("yes")
             || userInput.equalsIgnoreCase("y")
             || userInput.equalsIgnoreCase("yeah")){
@@ -35,7 +35,7 @@ public class Input {
         } return false;
     }
 
-    public int getInt( int min, int max){
+/*    public int getInt( int min, int max){
         System.out.printf("Enter an integer between %d and %d", min, max);
         int userInput = scanner.nextInt();
         if(userInput > min && userInput < max){
@@ -44,7 +44,7 @@ public class Input {
             System.out.println("Invalid input, try again");
             return getInt(min, max); // using recursion to let user try again
         }
-    }
+    }*/
     public int getInt( int min, int max, String prompt){
         System.out.println(prompt);
         System.out.printf("Enter an integer between %d and %d", min, max);
@@ -97,5 +97,37 @@ public class Input {
         System.out.println(prompt);
         System.out.println("Enter an Double:");
         return scanner.nextDouble();
+    }
+
+
+    // Get int method walkthrough
+
+    // class Input
+    // instantiate a new input:  Input in = new Input(System.in);
+
+    public int getInt(int min, int max){
+        // ask user for input integer
+        // check if input integer is in range
+        // in range? return input : ask for new input
+        // Loop to get extra inputs
+        // Loop has a flag/condition
+        boolean flag = true;
+        int userInput = 0;
+
+        while(flag){
+            System.out.println("Hey, enter an integer~!");
+            userInput = scanner.nextInt();
+            //is input valid??
+            if(userInput < max && userInput > min){
+                flag = false;
+            }
+        }
+
+        return userInput;
+    }
+
+    public static void main(String[] args) {
+        Input in = new Input();
+        System.out.println(in.getInt(10, 100));
     }
 }
