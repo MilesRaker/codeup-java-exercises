@@ -36,4 +36,9 @@ public class Student {
         }
         return output.toString();
     }
+
+    public String toCsv(String gitName){
+        return  name + "," + gitName + "," + getGradeAverage() ;
+
+    }
 }

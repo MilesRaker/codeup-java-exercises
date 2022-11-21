@@ -39,14 +39,16 @@ public class GradesApplication {
         Students.put("KittenPenny", Penny);
 
         /************************* Command Line Interface *************************/
-        boolean loop = true;
         Input in = new Input();
-        while(loop){
-            System.out.println("GRADES APPLICATION -- START..");
-            System.out.println("******************************");
-            System.out.println();
+        System.out.println("GRADES APPLICATION -- START..");
+        System.out.println("******************************");
+        System.out.println();
+
+        while(true){
             System.out.println("Enter Student Username to see Student Details: ");
             System.out.println("MilesRaker | LRoar | LEAEL | KittenPenny");
+            System.out.println("Or enter oen of the following commands: ");
+            System.out.println("Exit | classAverage | csvReport");
 
 
             String userInput = in.getString();
@@ -64,12 +66,22 @@ public class GradesApplication {
                 case "KittenPenny":
                     System.out.println("Username: KittenPenny\n" + Students.get("KittenPenny").toString());
                     break;
+                case "Exit":
+                    return;
+                case "classAverage":
+                    break;
+                case "csvReport":
+                    System.out.println("Students Data CSV Report: ");
+                    System.out.println("name,github_username,average");
+                    Students.forEach((key, value) -> {
+                        System.out.println(value.toCsv(key));
+                    });
+                    System.out.println("-----End csv report-----\n\n");
+                    break;
                 default:
                     System.out.println("invalid username");
                     break;
             }
-            loop = in.yesNo("Do you want to continue?");
-            System.out.println("loop = " + loop);
         }
     }
 }
