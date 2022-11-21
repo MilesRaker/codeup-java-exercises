@@ -27,4 +27,13 @@ public class Student {
         }
         return (total / grades.size());
     };
+
+    public String toString(){
+        StringBuilder output = new StringBuilder("Name: " + name + "\nGrade Average: " + getGradeAverage() + "\n");
+        output.append("Individual assignment grades: \n");
+        for (Integer grade : grades) {
+            output.append("Grade: ").append(grade).append("\n");
+        }
+        return output.toString();
+    }
 }

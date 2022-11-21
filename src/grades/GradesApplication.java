@@ -53,24 +53,16 @@ public class GradesApplication {
             System.out.println();
             switch (userInput){
                 case "MilesRaker":
-                    Student student0 = Students.get("MilesRaker");
-                    String output0 = "Name: "+ student0.getName() + " GitHub Username: MilesRaker\nCurrent Average: " + student0.getGradeAverage();
-                    System.out.println(output0);
+                    System.out.println("Username: MilesRaker\n" + Students.get("MilesRaker").toString());
                     break;
                 case "LRoar":
-                    Student student1 = Students.get("LRoar");
-                    String output1 = "Name: "+ student1.getName() + " GitHub Username: LRoar\nCurrent Average: " + student1.getGradeAverage();
-                    System.out.println(output1);
+                    System.out.println("Username: LRoar\n" + Students.get("LRoar").toString());
                     break;
                 case "LEAEL":
-                    Student student2 = Students.get("LEAEL");
-                    String output2 = "Name: "+ student2.getName() + " GitHub Username: LEAEL\nCurrent Average: " + student2.getGradeAverage();
-                    System.out.println(output2);
+                    System.out.println("Username: LEAEL\n" + Students.get("LEAEL").toString());
                     break;
                 case "KittenPenny":
-                    Student student3 = Students.get("KittenPenny");
-                    String output3 = "Name: "+ student3.getName() + " GitHub Username: KittenPenny\nCurrent Average: " + student3.getGradeAverage();
-                    System.out.println(output3);
+                    System.out.println("Username: KittenPenny\n" + Students.get("KittenPenny").toString());
                     break;
                 default:
                     System.out.println("invalid username");
