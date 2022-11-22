@@ -2,6 +2,7 @@ package grades;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Student {
     private String name;
@@ -20,6 +21,7 @@ public class Student {
     public Student(String name){
         this.name = name;
         grades = new ArrayList<>();
+        attendance = new HashMap<>();
     }
 
     // returns the student's name
@@ -42,17 +44,28 @@ public class Student {
     /**calculateAttendance
      * @return attendance rate in %*/
     public double calculateAttendance(){
-/*        int present = 0;
-        int total = attendance.size();
-        System.out.println(total);
-        for( : attendance)
-        attendance.forEach((date, status) -> {
-            if(status.equalsIgnoreCase("P")){
-                //present++;
+        double present = 0;
+        double total = attendance.size();
+        for( String value: attendance.values()){
+
+            if(value.equalsIgnoreCase("P")){
+                present++;
             }
-        });*/
-        return 30.0;
+        }
+        return present/total*100;
     }
+
+    public ArrayList<String> absenceReport(){
+        ArrayList<String> report = new ArrayList<>();
+        for( String key: attendance.keySet()){
+            if(attendance.get(key).equalsIgnoreCase("A")){
+                report.add(key);
+            }
+        }
+        return report;
+    }
+
+
     // adds the given grade to the grades property
     public void addGrade(int grade){
         grades.add(grade);
@@ -67,20 +80,31 @@ public class Student {
     };
 
     public String toString(){
-        StringBuilder output = new StringBuilder("Name: " + name + "\nGrade Average: " + getGradeAverage() + "\n");
+        StringBuilder output = new StringBuilder("Name: " + name + "\nGrade Average: " + getGradeAverage() + "\nAttendance Percentage: " + calculateAttendance() + "\n");
         output.append("Individual assignment grades: \n");
         for (Integer grade : grades) {
             output.append("Grade: ").append(grade).append("\n");
+        }
+        ArrayList<String> absenceReport = absenceReport();
+        output.append("\n Absence Report:\n");
+        for (String i : absenceReport) {
+            output.append(i + "\n");
         }
         return output.toString();
     }
 
     public String toCsv(String gitName){
         return  name + "," + gitName + "," + getGradeAverage() ;
-
     }
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         Student Miles = new Student("Miles");
-    }
+        Miles.recordAttendance("11051986","P");
+        Miles.recordAttendance("11061986","P");
+        Miles.recordAttendance("11071986","P");
+        Miles.recordAttendance("11081986","P");
+        Miles.recordAttendance("11091986","P");
+        Miles.recordAttendance("11101986","A");
+        System.out.println("Miles.calculateAttendance() = " + Miles.calculateAttendance());
+    }*/
 }

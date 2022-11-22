@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class GradesApplication {
     public static void main(String[] args) {
         /************************* Initialize Students HashMap *************************/
-        HashMap<String, Student> Students = new HashMap();
+        HashMap<String, Student> Students = new HashMap<>();
 
         // create students
         Student Miles = new Student("Miles");
@@ -20,7 +20,6 @@ public class GradesApplication {
         Miles.addGrade(99);
         Miles.addGrade(98);
 
-        Laura.addGrade(100);
         Laura.addGrade(99);
         Laura.addGrade(98);
 
@@ -32,6 +31,34 @@ public class GradesApplication {
         Penny.addGrade(99);
         Penny.addGrade(98);
 
+        //add attendance
+        Miles.recordAttendance("11051986", "P");
+        Miles.recordAttendance("11051987", "P");
+        Miles.recordAttendance("11051988", "P");
+        Miles.recordAttendance("11051989", "P");
+        Miles.recordAttendance("11051990", "P");
+        Miles.recordAttendance("11051991", "P");
+        Miles.recordAttendance("11051991", "A");
+
+        Laura.recordAttendance("12311980", "P");
+        Laura.recordAttendance("12311981", "P");
+        Laura.recordAttendance("12311982", "P");
+        Laura.recordAttendance("12311983", "P");
+        Laura.recordAttendance("12311984", "P");
+
+        Lea.recordAttendance("07122010", "P");
+        Lea.recordAttendance("07122011", "P");
+        Lea.recordAttendance("07122012", "P");
+        Lea.recordAttendance("07122013", "A");
+        Lea.recordAttendance("07122014", "P");
+        Lea.recordAttendance("07122015", "P");
+
+        Penny.recordAttendance("11052010", "P");
+        Penny.recordAttendance("11052011", "P");
+        Penny.recordAttendance("11052012", "P");
+        Penny.recordAttendance("11052013", "P");
+        Penny.recordAttendance("11052014", "P");
+        Penny.recordAttendance("11052015", "P");
         // add to hashmap
         Students.put("MilesRaker", Miles);
         Students.put("LRoar", Laura);
