@@ -18,21 +18,17 @@ public class Input {
     public boolean yesNo(){
         System.out.println("Enter yes or no: ");
         String userInput = scanner.nextLine();
-        if(userInput.equalsIgnoreCase("yes")
-            || userInput.equalsIgnoreCase("y")
-            || userInput.equalsIgnoreCase("yeah")){
-            return true;
-        } return false;
+        return userInput.equalsIgnoreCase("yes")
+                || userInput.equalsIgnoreCase("y")
+                || userInput.equalsIgnoreCase("yeah");
     }
     public boolean yesNo(String prompt){
         System.out.println(prompt);
         System.out.println("Enter yes or no: ");
         String userInput = scanner.nextLine();
-        if(userInput.equalsIgnoreCase("yes")
-            || userInput.equalsIgnoreCase("y")
-            || userInput.equalsIgnoreCase("yeah")){
-            return true;
-        } return false;
+        return userInput.equalsIgnoreCase("yes")
+                || userInput.equalsIgnoreCase("y")
+                || userInput.equalsIgnoreCase("yeah");
     }
 
 /*    public int getInt( int min, int max){
@@ -49,27 +45,34 @@ public class Input {
         System.out.println(prompt);
         System.out.printf("Enter an integer between %d and %d", min, max);
         int userInput = scanner.nextInt();
+        scanner.nextLine();
         if(userInput > min && userInput < max){
             return userInput;
         } else {
             System.out.println("Invalid input, try again");
             return getInt(min, max); // using recursion to let user try again
         }
+
     }
 
     public int getInt(){
         System.out.println("Enter an integer:");
-        return scanner.nextInt();
+        int output = scanner.nextInt();
+        scanner.nextLine();
+        return output;
     }
     public int getInt(String prompt){
         System.out.println(prompt);
         System.out.println("Enter an integer:");
-        return scanner.nextInt();
+        int output = scanner.nextInt();
+        scanner.nextLine();
+        return output;
     }
 
     public double getDouble( int min, int max){
         System.out.printf("Enter an double between %d and %d", min, max);
         double userInput = scanner.nextDouble();
+        scanner.nextLine();
         if(userInput > min && userInput < max){
             return userInput;
         } else {
@@ -81,6 +84,7 @@ public class Input {
         System.out.println(prompt);
         System.out.printf("Enter an double between %d and %d", min, max);
         double userInput = scanner.nextDouble();
+        scanner.nextLine();
         if(userInput > min && userInput < max){
             return userInput;
         } else {
@@ -91,12 +95,16 @@ public class Input {
 
     public double getDouble(){
         System.out.println("Enter an Double:");
-        return scanner.nextDouble();
+        double output = scanner.nextDouble();
+        scanner.nextLine();
+        return output;
     }
     public double getDouble(String prompt){
         System.out.println(prompt);
         System.out.println("Enter an Double:");
-        return scanner.nextDouble();
+        double output = scanner.nextDouble();
+        scanner.nextLine();
+        return output;
     }
 
 
@@ -126,8 +134,5 @@ public class Input {
         return userInput;
     }
 
-    public static void main(String[] args) {
-        Input in = new Input();
-        System.out.println(in.getInt(10, 100));
-    }
+
 }

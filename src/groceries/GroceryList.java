@@ -20,7 +20,7 @@ public class GroceryList {
         shoppingList.add(item);
     }
 
-    public void sortList(){
+    public String sortList(){
         // sorts by categories, then alphabetic within those categories
         ArrayList<GroceryItem> produceList = new ArrayList<>();
         ArrayList<GroceryItem> deliList = new ArrayList<>();
@@ -30,30 +30,47 @@ public class GroceryList {
         ArrayList<GroceryItem> alcoholList = new ArrayList<>();
 
         for (GroceryItem groceryItem : shoppingList) {
-            switch(groceryItem.getCategory()){
-                case "produce":
-                    produceList.add(groceryItem);
-                    break;
-                case "deli":
-                    deliList.add(groceryItem);
-                    break;
-                case "meat" :
-                    meatList.add(groceryItem);
-                    break;
-                case "dairy":
-                    dairyList.add(groceryItem);
-                    break;
-                case "baking":
-                    bakingList.add(groceryItem);
-                    break;
-                case "alcohol":
-                    alcoholList.add(groceryItem);
-                    break;
+            switch (groceryItem.getCategory()) {
+                case "produce" -> produceList.add(groceryItem);
+                case "deli" -> deliList.add(groceryItem);
+                case "meat" -> meatList.add(groceryItem);
+                case "dairy" -> dairyList.add(groceryItem);
+                case "baking" -> bakingList.add(groceryItem);
+                case "alcohol" -> alcoholList.add(groceryItem);
             }
         }
 
         // alphabetic sorting...
-        //produceList.sort();
+        produceList.sort(GroceryItem::compareTo);
+        deliList.sort(GroceryItem::compareTo);
+        meatList.sort(GroceryItem::compareTo);
+        dairyList.sort(GroceryItem::compareTo);
+        bakingList.sort(GroceryItem::compareTo);
+        alcoholList.sort(GroceryItem::compareTo);
 
+        // create sorted list
+        StringBuilder sortedList = new StringBuilder();
+        for (GroceryItem groceryItem : produceList) {
+            sortedList.append(groceryItem.listEntry()).append("\n");
+        }
+        for (GroceryItem groceryItem : deliList) {
+            sortedList.append(groceryItem.listEntry()).append("\n");
+        }
+        for (GroceryItem groceryItem : meatList) {
+            sortedList.append(groceryItem.listEntry()).append("\n");
+        }
+        for (GroceryItem groceryItem : dairyList) {
+            sortedList.append(groceryItem.listEntry()).append("\n");
+        }
+        for (GroceryItem groceryItem : bakingList) {
+            sortedList.append(groceryItem.listEntry()).append("\n");
+        }
+        for (GroceryItem groceryItem : alcoholList) {
+            sortedList.append(groceryItem.listEntry()).append("\n");
+        }
+
+        // Create output string
+
+        return sortedList.toString();
     }
 }

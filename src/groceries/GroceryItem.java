@@ -21,7 +21,11 @@ public class GroceryItem {
 
     public String listEntry(){
         StringBuilder groceryEntry = new StringBuilder();
-        groceryEntry.append(name + " | " + category + " | " + quantity + " | " + price);
+        groceryEntry.append(name).append(" | ").append(category).append(" | ").append(quantity).append(" | ").append(price);
         return groceryEntry.toString();
+    }
+
+    public int compareTo(GroceryItem g){
+        return this.name.compareTo(g.name);
     }
 }
