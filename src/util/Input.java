@@ -55,10 +55,23 @@ public class Input {
 
     }
 
+//    public int getInt(){
+//        System.out.println("Enter an integer:");
+//        int output = scanner.nextInt();
+//        scanner.nextLine();
+//        return output;
+//    }
+
     public int getInt(){
-        System.out.println("Enter an integer:");
-        int output = scanner.nextInt();
-        scanner.nextLine();
+        String input = getString();
+        int output = -1;
+        try{
+            output = Integer.valueOf(input);
+        } catch (Exception e){
+            System.out.println("Invalid input, not an integer");
+            System.out.println("Enter a valid integer this time...");
+            getInt();
+        }
         return output;
     }
     public int getInt(String prompt){
@@ -93,10 +106,23 @@ public class Input {
         }
     }
 
+//    public double getDouble(){
+//        System.out.println("Enter an Double:");
+//        double output = scanner.nextDouble();
+//        scanner.nextLine();
+//        return output;
+//    }
+
     public double getDouble(){
-        System.out.println("Enter an Double:");
-        double output = scanner.nextDouble();
-        scanner.nextLine();
+        String input = getString();
+        double output = -1;
+        try{
+            output = Double.valueOf(input);
+        } catch(Exception e){
+            System.out.println("Invalid input, not a double");
+            System.out.println("Enter a valid double this time...");
+            getDouble();
+        }
         return output;
     }
     public double getDouble(String prompt){
@@ -134,5 +160,31 @@ public class Input {
         return userInput;
     }
 
+    public int getBinary(){
+        System.out.println("Enter a binary number: ");
+        String binaryIn = getString();
+        int binaryOut = -1;
+        try{
+            binaryOut = Integer.valueOf(binaryIn, 2);
+        } catch(Exception e){
+            System.out.println("Invalid input, not a valid binary");
+            System.out.println("Enter a valid binary this time...");
+            getBinary();
+        }
+        return binaryOut;
+    }
 
+    public int getHex(){
+        System.out.println("Enter a hex number: ");
+        String hexIn = getString();
+        int hexOut = -1;
+        try{
+            hexOut = Integer.valueOf(hexIn, 16);
+        } catch(Exception e){
+            System.out.println("Invalid input, not a valid hex");
+            System.out.println("Enter a valid hex this time...");
+            getBinary();
+        }
+        return hexOut;
+    }
 }
